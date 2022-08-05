@@ -1,0 +1,7 @@
+.vs
+out
+CMakeSettings.json
+build
+*.exe
+utils/fonts/binary_to_compressed_c.*
+utils/temp
