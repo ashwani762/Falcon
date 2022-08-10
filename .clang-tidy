@@ -38,9 +38,9 @@ CheckOptions:
   - key:             readability-identifier-naming.MemberCase
     value:           camelBack
   - key:             readability-identifier-naming.PrivateMemberSuffix
-    value:           _
+    value:           m_
   - key:             readability-identifier-naming.PublicMemberSuffix
-    value:           ''
+    value:           m_
   - key:             readability-identifier-naming.NamespaceCase
     value:           lower_case
   - key:             readability-identifier-naming.ParameterCase

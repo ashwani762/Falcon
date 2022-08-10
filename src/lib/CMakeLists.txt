@@ -1,3 +1,3 @@
 add_files(LIB
-    lib.cc
+    event.cc
 )

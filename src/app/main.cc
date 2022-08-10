@@ -1,8 +1,12 @@
 #include <iostream>
-#include <lib.h>
 #include <imgui.h>
+#include <utils.h>
+#include <logger.h>
+#include <event.h>
 
-auto main() -> int {
-    std::cout << k();
+auto main(int argc, char **argv) -> int {
+
+
+
     return 0;
 }
