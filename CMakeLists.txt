@@ -75,6 +75,7 @@ add_subdirectory("external/imgui" EXCLUDE_FROM_ALL)
 
 add_subdirectory ("src/app")
 add_subdirectory ("src/lib")
+add_subdirectory ("src/lib_gui")
 add_subdirectory ("src/lib_utils")
 
 # Lib
@@ -93,6 +94,28 @@ target_include_directories(${LIB_PROJECT_NAME} SYSTEM
 
 target_link_libraries(${LIB_PROJECT_NAME} ${Boost_LIBRARIES})
 
+# GUI
+
+add_library(${LIB_GUI_PROJECT_NAME} ${LIB_GUI_FILES})
+
+set_property(
+	TARGET ${LIB_GUI_PROJECT_NAME}
+	PROPERTY INCLUDE_DIRECTORIES
+		"${LIB_GUI_INCLUDE_PATHS}"
+		"${LIB_INCLUDE_PATHS}"
+		"${LIB_UTILS_INCLUDE_PATHS}"
+)
+
+target_include_directories(${LIB_GUI_PROJECT_NAME} SYSTEM
+	PUBLIC imgui
+)
+
+target_link_libraries(${LIB_GUI_PROJECT_NAME}
+	${LIB_PROJECT_NAME}
+	${LIB_UTILS_PROJECT_NAME}
+	imgui
+)
+
 # Utils
 
 add_library(${LIB_UTILS_PROJECT_NAME} ${LIB_UTILS_FILES})
@@ -104,12 +127,10 @@ set_property(
 )
 
 target_include_directories(${LIB_UTILS_PROJECT_NAME} SYSTEM
-	PUBLIC ${Boost_INCLUDE_DIR}
-	fmt
+	PUBLIC fmt
 )
 
 target_link_libraries(${LIB_UTILS_PROJECT_NAME} 
-	${Boost_LIBRARIES}
 	fmt
 )
 
@@ -121,19 +142,20 @@ add_executable(${APP_PROJECT_NAME} ${APP_FILES})
 target_link_libraries(
 	${APP_PROJECT_NAME}
 	${LIB_PROJECT_NAME}
+	${LIB_GUI_PROJECT_NAME}
 	${LIB_UTILS_PROJECT_NAME}
-	imgui
+	${Boost_LIBRARIES}
 )
 
 set_property(
 	TARGET ${APP_PROJECT_NAME}
 	PROPERTY INCLUDE_DIRECTORIES
 		"${APP_INCLUDE_PATHS}"
+		"${LIB_GUI_INCLUDE_PATHS}"
 		"${LIB_INCLUDE_PATHS}"
 		"${LIB_UTILS_INCLUDE_PATHS}"
 )
 
 target_include_directories(${APP_PROJECT_NAME} SYSTEM
 	PUBLIC ${Boost_INCLUDE_DIRS}
-	imgui
 )

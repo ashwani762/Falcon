@@ -8,29 +8,28 @@
 
 namespace falcon {
 
-    #define ON_SCOPE_EXIT \
+#define ON_SCOPE_EXIT                                     \
   [[maybe_unused]] auto ANONYMOUS_VARIABLE(SCOPE_EXIT_) = \
-      ScopeGuardOnExit() + [&]() 
+      ScopeGuardOnExit() + [&]()
 
-	template<typename F>
-	class ScopeFunctor {
+template <typename F>
+class ScopeFunctor {
+ public:
+  explicit constexpr ScopeFunctor(F func) : m_func(std::move(func)) {}
 
-        public:
-          explicit constexpr ScopeFunctor(F func) : m_func(std::move(func)) {}
+  ScopeFunctor(const ScopeFunctor &&) = delete;
 
-          ScopeFunctor(const ScopeFunctor &&) = delete;
+  ~ScopeFunctor() { m_func(); }
 
-          ~ScopeFunctor() { m_func(); }
-          
-        private:
-		F m_func;
-	};
+ private:
+  F m_func;
+};
 
-    enum class ScopeGuardOnExit {};
+enum class ScopeGuardOnExit {};
 
-    template <typename F>
-    constexpr auto operator+(ScopeGuardOnExit, F &&f)->ScopeFunctor<F> {
-      return ScopeFunctor<F>(std::forward<F>(f));
-    }
-
+template <typename F>
+constexpr auto operator+(ScopeGuardOnExit, F &&f) -> ScopeFunctor<F> {
+  return ScopeFunctor<F>(std::forward<F>(f));
 }
+
+}  // namespace falcon

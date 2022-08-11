@@ -1,12 +1,10 @@
+#include <window.h>
+
 #include <iostream>
-#include <imgui.h>
-#include <utils.h>
-#include <logger.h>
-#include <event.h>
 
 auto main(int argc, char **argv) -> int {
+  falcon::Window window;
+  window.loop();
 
-
-
-    return 0;
+  return EXIT_SUCCESS;
 }
