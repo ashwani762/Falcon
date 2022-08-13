@@ -1,7 +1,9 @@
+#include <fonts/Font_opensans.h>
+
 // File: 'OpenSans-Light.ttf' (129756 bytes)
 // Exported using binary_to_compressed_c.cpp
-static const unsigned int opensans_compressed_size = 99060;
-static const unsigned int opensans_compressed_data[99060/4] =
+const unsigned int opensans_compressed_size = 99060;
+const unsigned int opensans_compressed_data[99060/4] =
 {
     0x0000bc57, 0x00000000, 0xdcfa0100, 0x00000400, 0x00010025, 0x82120000, 0x043e0804, 0x44472000, 0xc8b44645, 0x010060b1, 0x0000e4b0, 0x5047be01, 
     0xd687534f, 0x01009324, 0x0000a4b2, 0x5347d238, 0x26374255, 0x010017c0, 0x000078eb, 0x534f060f, 0xdc95322f, 0x01002c83, 0x4582046c, 0x5453602c, 

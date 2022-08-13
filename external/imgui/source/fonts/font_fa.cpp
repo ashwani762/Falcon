@@ -1,7 +1,9 @@
+#include <fonts/IconsFontAwesome6.h>
+
 // File: 'fa-solid-900.ttf' (389948 bytes)
 // Exported using binary_to_compressed_c.cpp
-static const unsigned int fa_compressed_size = 239264;
-static const unsigned int fa_compressed_data[239264/4] =
+const unsigned int fa_compressed_size = 239264;
+const unsigned int fa_compressed_data[239264/4] =
 {
     0x0000bc57, 0x00000000, 0x3cf30500, 0x00000400, 0x00010037, 0x000a0000, 0x00030080, 0x2f534f20, 0x624b6132, 0x0100004a, 0x08158228, 0x6d636028, 
     0x64557061, 0x00007558, 0x00004017, 0x6c676e48, 0x450f6679, 0x0000be26, 0x05006c75, 0x65680c2d, 0xa7226461, 0x2b82c2f3, 0x0382ac20, 0x82683621, 

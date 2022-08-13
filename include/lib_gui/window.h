@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <vector>
 
 struct GLFWwindow;
 
@@ -21,6 +22,9 @@ class Window {
 
   GLFWwindow *m_window = nullptr;
   std::string m_windowTitle;
+
+  bool m_mouseButtonDown;
+  std::vector<int> m_pressedKeys;
 
   double m_lastFrameTime = 0;
 };

@@ -86,13 +86,18 @@ set_property(
 	TARGET ${LIB_PROJECT_NAME}
 	PROPERTY INCLUDE_DIRECTORIES
 		"${LIB_INCLUDE_PATHS}"
+		"${LIB_UTILS_INCLUDE_PATHS}"
 )
 
 target_include_directories(${LIB_PROJECT_NAME} SYSTEM
 	PUBLIC ${Boost_INCLUDE_DIR}
+			imgui
 )
 
-target_link_libraries(${LIB_PROJECT_NAME} ${Boost_LIBRARIES})
+target_link_libraries(${LIB_PROJECT_NAME} 
+	${Boost_LIBRARIES}
+	imgui
+)
 
 # GUI
 
