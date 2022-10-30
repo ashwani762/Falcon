@@ -1,3 +1,4 @@
 add_files(LIB_GUI
-    window.cc
+    QtApplication.cc
+    QtApplication.h
 )

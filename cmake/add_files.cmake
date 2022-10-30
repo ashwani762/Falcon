@@ -30,7 +30,9 @@ macro(add_files var_name)
 	string(TOLOWER ${var_name} var_name_lower)
 	
 	foreach (_src ${${files_var_name}})
-		list (APPEND ${include_paths_var_name} "${CMAKE_SOURCE_DIR}/include/${var_name_lower}")
+		#list (APPEND ${include_paths_var_name} "${CMAKE_SOURCE_DIR}/include/${var_name_lower}")
+		get_filename_component(PARENT_DIR "${_src}" DIRECTORY)
+		list (APPEND ${include_paths_var_name} "${CMAKE_SOURCE_DIR}/${PARENT_DIR}")
 	endforeach()
 	
 	list(REMOVE_DUPLICATES ${include_paths_var_name})
